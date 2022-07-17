@@ -4,9 +4,9 @@ import Storage from '../../utils/storage'
 export default {
   namespaced: true,
   state: {
-    token: '',
-    username: '',
-    menus: '',
+    token: Storage.getItem('token') || '',
+    username: Storage.getItem('username') || '',
+    menus: Storage.getItem('menus') || '',
     ruleNames: ''
   },
   mutations: {
@@ -18,10 +18,12 @@ export default {
     // 用户名
     username(state, username) {
       state.username = username
+      Storage.setItem('username', username)
     },
     // 菜单
     menus(state, menus) {
       state.menus = menus
+      Storage.setItem('menus', menus)
     },
     // 接口信息权限
     ruleNames(state, ruleNames) {
@@ -45,6 +47,7 @@ export default {
       commit('username', username) // 用户名
       commit('menus', menus) // 菜单
       commit('ruleNames', ruleNames) // 接口信息权限
+      return { menus, username, ruleNames }
     }
   }
 

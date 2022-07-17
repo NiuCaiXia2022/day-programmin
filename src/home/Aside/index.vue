@@ -37,12 +37,13 @@
 </template>
 <script setup>
 // import { useStore } from 'vuex'
-// import { reactive } from 'vue'
+// import { computed } from 'vue'
 // const store = useStore()
 
-// const muesList = reactive(
-// return store.getters.menus
-//    )
+// const muesList = computed(() => {
+//   return store.getters.menus
+// })
+// console.log('菜单', muesList.value)
 </script>
 <style lang="scss" scoped>
 </style>

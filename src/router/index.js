@@ -11,6 +11,7 @@ const routes = [
     component: () => import('../views/login')
   }
 ]
+// { /* <el-icon><Help /></el-icon> */ }
 
 const router = createRouter({
   history: createWebHashHistory(),
