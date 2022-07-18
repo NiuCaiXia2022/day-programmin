@@ -122,9 +122,11 @@ const handleLoginSubmit = async (name) => {
   if (name === 'mini') {
     await miniLoginFormRef.value.validate(async (valid) => {
       if (valid) {
-        const res = await store.dispatch('login/getLogin', loginForm)
-        console.log('点击登录', res)
-        await store.dispatch('login/getInfo')
+        // const res = await store.dispatch('login/getLogin', loginForm)
+        // console.log('点击登录', res)
+
+        await store.dispatch('login/getLogin', loginForm)
+        // await store.dispatch('login/getInfo')
         router.push('/')
       }
     })
@@ -133,7 +135,7 @@ const handleLoginSubmit = async (name) => {
       if (valid) {
         const res = await store.dispatch('login/getLogin', loginForm)
         console.log('点击登录', res)
-        await store.dispatch('login/getInfo')
+        // await store.dispatch('login/getInfo')
         router.push('/')
       }
     })

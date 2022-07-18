@@ -27,7 +27,7 @@
         </el-icon>
       </div>
       <div>
-         <el-avatar> user </el-avatar>
+        <el-avatar> user </el-avatar>
       </div>
       <div>
         <el-dropdown @command="handleCommand">
@@ -39,7 +39,7 @@
           <template #dropdown>
             <el-dropdown-menu>
               <el-dropdown-item command="a">修改密码</el-dropdown-item>
-              <el-dropdown-item command="">退出登录</el-dropdown-item>
+              <el-dropdown-item command="logout">退出登录</el-dropdown-item>
             </el-dropdown-menu>
           </template>
         </el-dropdown>
@@ -49,9 +49,17 @@
 </template>
 <script setup>
 // import { reactive } from 'vue'
-const handleCommand = () => {
-
+import { useStore } from 'vuex'
+// import { useRouter } from 'vue-router'
+// const router = useRouter()
+const store = useStore()
+const handleCommand = async (command) => {
+  if (command === 'logout') {
+    await store.dispatch('login/getLogout')
+    // console.log('路由', router.getRoutes())
+  }
 }
+
 </script>
 <style lang="scss" scoped>
 .header-div {

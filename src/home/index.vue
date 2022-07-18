@@ -13,6 +13,7 @@
         </el-aside>
         <el-main>
           <Main></Main>
+          <router-view></router-view>
         </el-main>
       </el-container>
     </el-container>
@@ -27,9 +28,25 @@ import Main from './Main'
 .home-box {
   width: 100vw;
   height: 100vh;
-  .el-header{
+
+  .el-header {
     padding: 0;
     height: 64px;
+  }
+
+  .el-aside {
+    width: 250px;
+    height: calc(100vh - 64px);
+
+    :deep .el-menu {
+      border-right: 0;
+    }
+  }
+
+  .el-main {
+    background-color: #f3f4f6;
+    height: calc(100vh - 64px);
+    padding: 0;
   }
 }
 </style>
