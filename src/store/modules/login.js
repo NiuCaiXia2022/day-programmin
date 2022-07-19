@@ -8,8 +8,9 @@ export default {
   state: {
     token: Storage.getItem('token') || '',
     username: Storage.getItem('username') || '',
-    menus: '',
-    ruleNames: ''
+    menus: '', // 菜单
+    ruleNames: '' // 权限
+
   },
   mutations: {
     // 登录
@@ -31,10 +32,12 @@ export default {
     ruleNames(state, ruleNames) {
       state.ruleNames = ruleNames
     },
+    // 退出登录
     resetMenus(state) {
       state.menus = null
       resetRouter(state.menus)
     }
+
   },
   actions: {
     // 登录
@@ -57,16 +60,17 @@ export default {
       return { menus, username, ruleNames }
     },
     // 退出
-    async getLogout({ commit }) {
+    async outLogout({ commit }) {
       resetRouter()
       commit('login', '')
       commit('menus', '')
       commit('username', '')
       commit('ruleNames', '')
+      await Login.outLogout()
       // commit('resetMenus') // 删除动态路由
       router.push('/login')
       // console.log('路由', router.getRoutes())
     }
-  }
 
+  }
 }

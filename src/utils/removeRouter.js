@@ -19,6 +19,8 @@ import router from '../router'
 //   }
 // }
 
+//
+
 export const resetRouter = () => {
   if (
     store.getters.token && store.getters.username && store.getters.menus

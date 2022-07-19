@@ -44,7 +44,7 @@ const getStatistics3 = (data) => {
 }
 
 // 退出 /logout
-const getLogout = () => {
+const outLogout = () => {
   return http({
     url: '/logout',
     method: 'POST'
@@ -56,5 +56,5 @@ export default {
   getStatistics1,
   getStatistics2,
   getStatistics3,
-  getLogout
+  outLogout
 }

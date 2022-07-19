@@ -1,5 +1,7 @@
 <template>
+  <!-- <div :width="$store.getters.isCollapse ? '65px' : '200px'"> -->
   <div>
+
     <!-- 左 -->
     <!--
      :collapse="isCollapse"
@@ -8,7 +10,9 @@
    -->
     <!-- 菜单 -->
     <!-- {{muesList[0]}} -->
-    <el-menu default-active="2" class="el-menu-vertical-demo" unique-opened router>
+    <el-menu default-active="2" class="el-menu-vertical-demo" unique-opened router
+      :style="{ width: $store.getters.isCollapse ? '65px' : '250px' }" :collapse="$store.getters.isCollapse">
+
       <template v-for="(item, index) in muesList" :key="index">
         <el-sub-menu :index="(index + 1).toString()" class="sub-menu">
           <template #title>
@@ -18,6 +22,7 @@
               <component :is="iconPath(item.icon)"></component>
             </el-icon>
             <span>{{ item.name }}</span>
+            <!-- <span>{{ $store.getters.isCollapse }}</span> -->
           </template>
           <el-menu-item v-for="(ele, i) in item.children" :key="i" :index="ele.frontpath">
             <el-icon>
@@ -38,11 +43,10 @@ import { filterRoutes, iconPath } from '../../utils/router'
 // import { filterRoutes } from '../../utils/router'
 
 const store = useStore()
-
+// const isCollapse = computed(store.getters.isCollapse)
 const muesList = computed(() => {
   return store.getters.menus && store.getters.menus.length > 0 ? filterRoutes(store.getters.menus) : []
 })
 </script>
 <style lang="scss" scoped>
-
 </style>

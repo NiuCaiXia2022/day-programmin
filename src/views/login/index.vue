@@ -100,6 +100,8 @@ import { reactive, ref } from 'vue'
 import { User, Lock } from '@element-plus/icons-vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
+// 信息提示
+import { ElNotification } from 'element-plus'
 
 const store = useStore()
 const router = useRouter()
@@ -128,6 +130,11 @@ const handleLoginSubmit = async (name) => {
         await store.dispatch('login/getLogin', loginForm)
         // await store.dispatch('login/getInfo')
         router.push('/')
+        ElNotification({
+          title: '提示',
+          message: '登陆成功',
+          type: 'success'
+        })
       }
     })
   } else {
@@ -137,6 +144,11 @@ const handleLoginSubmit = async (name) => {
         console.log('点击登录', res)
         // await store.dispatch('login/getInfo')
         router.push('/')
+        ElNotification({
+          title: '提示',
+          message: '登陆成功',
+          type: 'success'
+        })
       }
     })
   }

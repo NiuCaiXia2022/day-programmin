@@ -10,8 +10,14 @@
         <!-- <el-icon>
           <Expand />
         </el-icon> -->
-        <el-icon>
-          <Fold />
+        <el-icon @click="handleStatusIcon">
+          <span v-if="$store.getters.isCollapse">
+            <Expand />
+          </span>
+          <span v-else>
+            <Fold />
+          </span>
+          <!-- {{$store.getters.isCollapse ? '' :'<Expand />'}} <Fold /> -->
         </el-icon>
       </div>
       <div>
@@ -22,9 +28,11 @@
     </div>
     <div class="right">
       <div>
+        <!-- 全屏 -->
         <el-icon>
           <FullScreen />
         </el-icon>
+        <!-- <el-icon><Aim /></el-icon> -->
       </div>
       <div>
         <el-avatar> user </el-avatar>
@@ -48,16 +56,49 @@
   </div>
 </template>
 <script setup>
+// 信息提示
+import { ElMessage, ElMessageBox } from 'element-plus'
 // import { reactive } from 'vue'
+import { ref } from 'vue'
 import { useStore } from 'vuex'
 // import { useRouter } from 'vue-router'
 // const router = useRouter()
 const store = useStore()
-const handleCommand = async (command) => {
+const flag = ref(store.getters.isCollapse)
+console.log('flag', flag)
+// 判断
+const handleCommand = (command) => {
   if (command === 'logout') {
-    await store.dispatch('login/getLogout')
-    // console.log('路由', router.getRoutes())
+    logout()
   }
+}
+// 退出登录
+const logout = () => {
+  ElMessageBox.confirm(
+    '是否要退出登录',
+    {
+      confirmButtonText: '确定',
+      cancelButtonText: '取消',
+      type: 'warning'
+    }
+  )
+    .then(async () => {
+      await store.dispatch('login/outLogout')
+      ElMessage({
+        type: 'success',
+        message: '退出用户成功'
+      })
+    })
+    .catch(() => {
+      ElMessage({
+        type: 'info',
+        message: '退出用户失败'
+      })
+    })
+}
+// 折叠菜单
+const handleStatusIcon = () => {
+  store.dispatch('menus/SetStatusIsCollapse')
 }
 
 </script>

@@ -12,13 +12,11 @@ router.beforeEach(async (to, from, next) => {
   const token = store.getters.token
   // console.log('token', token)
   // const menus = store.getters.menus
-
   if (token) {
     if (to.path === '/login') {
       next(from.path)
     } else {
       // console.log('b')
-
       let hasNewRoutes = false
       // 判断 vuex 的菜单数据 是否存在 菜单
       if (!store.state.login.menus) {

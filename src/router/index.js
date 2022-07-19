@@ -157,11 +157,8 @@ export function addRoutes(menus) {
   const findAndAddRoutesByMenus = (arr) => {
     // console.log('arr', arr) // 获取的是菜单数据
     arr.forEach(e => {
-      // console.log('e', e)
       // 动态路由 跟 传递的路由  path 一样的话保存
       const item = asyncRoutes.find(o => o.path === e.frontpath)
-      // console.log('item', item)
-      // console.log('router.hasRoute(item.path)', router.hasRoute(item.path))
       // hasRoute 用于判断路由是否存在。hasRoute接收一个name字符串，返回一个boolen值。
       if (item && !router.hasRoute(item.path)) { // item 存在 并且 item的path不存在
         // 路由添加

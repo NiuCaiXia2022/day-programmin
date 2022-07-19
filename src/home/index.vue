@@ -8,7 +8,7 @@
       </el-header>
       <!-- 下 -->
       <el-container>
-        <el-aside width="200px">
+        <el-aside width="auto">
           <Aside></Aside>
         </el-aside>
         <el-main>
@@ -23,6 +23,8 @@
 import Header from './Header'
 import Aside from './Aside'
 import Main from './Main'
+// import { ref } from 'vue'
+// const flag=ref()
 </script>
 <style lang="scss" scoped>
 .home-box {
@@ -35,7 +37,6 @@ import Main from './Main'
   }
 
   .el-aside {
-    width: 250px;
     height: calc(100vh - 64px);
 
     :deep .el-menu {
