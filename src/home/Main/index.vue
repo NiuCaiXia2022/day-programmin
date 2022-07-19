@@ -2,9 +2,10 @@
   <div class="main-box">
     <Header></Header>
     <div class="main-content">
-      <el-card class="box-card">
-        页面区域
-      </el-card>
+      <router-view></router-view>
+
+      <!-- <el-card class="box-card">
+      </el-card> -->
     </div>
   </div>
 </template>
@@ -12,7 +13,7 @@
 import Header from './header.vue'
 </script>
 <style lang="scss" scoped>
-.main-content{
+.main-content {
   margin: 20px;
 }
 </style>

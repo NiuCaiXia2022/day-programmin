@@ -7,5 +7,6 @@ export default {
   username: state => state.login.username,
   menus: state => state.login.menus,
   ruleNames: state => state.login.ruleNames,
-  isCollapse: state => state.menus.isCollapse
+  isCollapse: state => state.menus.isCollapse,
+  tags: state => state.tagsview.tags
 }

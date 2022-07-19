@@ -1,5 +1,7 @@
 <template>
-  <div>index</div>
+  <div>
+    主控台
+  </div>
 </template>
 <script setup>
 </script>

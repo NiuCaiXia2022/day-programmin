@@ -13,7 +13,7 @@
         </el-aside>
         <el-main>
           <Main></Main>
-          <router-view></router-view>
+          <!-- <router-view></router-view> -->
         </el-main>
       </el-container>
     </el-container>
@@ -23,8 +23,6 @@
 import Header from './Header'
 import Aside from './Aside'
 import Main from './Main'
-// import { ref } from 'vue'
-// const flag=ref()
 </script>
 <style lang="scss" scoped>
 .home-box {

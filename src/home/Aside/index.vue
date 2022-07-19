@@ -49,4 +49,18 @@ const muesList = computed(() => {
 })
 </script>
 <style lang="scss" scoped>
+.el-aside {
+  height: 100vh;
+  background-color: #ffffff;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  /* Edge */
+  scrollbar-width: none;
+
+  /* Firefox */
+  &::-webkit-scrollbar {
+    display: none;
+    /* WebKit */
+  }
+}
 </style>
