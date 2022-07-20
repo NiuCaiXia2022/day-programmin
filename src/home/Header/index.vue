@@ -20,7 +20,7 @@
           <!-- {{$store.getters.isCollapse ? '' :'<Expand />'}} <Fold /> -->
         </el-icon>
       </div>
-      <div>
+      <div @clack="handleRefresh">
         <el-icon>
           <Refresh />
         </el-icon>
@@ -29,7 +29,7 @@
     <div class="right">
       <div>
         <!-- 全屏 -->
-        <el-icon>
+        <el-icon @click="toggle">
           <FullScreen />
         </el-icon>
         <!-- <el-icon><Aim /></el-icon> -->
@@ -57,7 +57,10 @@
 </template>
 <script setup>
 // 信息提示
+// import router from 'vue-router'
 import { ElMessage, ElMessageBox } from 'element-plus'
+// 全屏
+import screenfull from 'screenfull'
 // import { reactive } from 'vue'
 import { ref } from 'vue'
 import { useStore } from 'vuex'
@@ -66,6 +69,13 @@ import { useStore } from 'vuex'
 const store = useStore()
 const flag = ref(store.getters.isCollapse)
 console.log('flag', flag)
+const isFullscreen = ref(screenfull.isFullscreen)
+const toggle = () => {
+  screenfull.toggle()
+  // 触发双向绑定
+  isFullscreen.value = screenfull.isFullscreen
+}
+
 // 判断
 const handleCommand = (command) => {
   if (command === 'logout') {
@@ -99,6 +109,12 @@ const logout = () => {
 // 折叠菜单
 const handleStatusIcon = () => {
   store.dispatch('menus/SetStatusIsCollapse')
+}
+// 刷新
+const handleRefresh = () => {
+  // location.reload()
+  // router.go(0)
+  window.onload()
 }
 
 </script>
