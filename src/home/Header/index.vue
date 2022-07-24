@@ -20,8 +20,8 @@
           <!-- {{$store.getters.isCollapse ? '' :'<Expand />'}} <Fold /> -->
         </el-icon>
       </div>
-      <div @clack="handleRefresh">
-        <el-icon>
+      <div>
+        <el-icon @click="handleRefresh">
           <Refresh />
         </el-icon>
       </div>
@@ -67,9 +67,9 @@ import { useStore } from 'vuex'
 // import { useRouter } from 'vue-router'
 // const router = useRouter()
 const store = useStore()
-const flag = ref(store.getters.isCollapse)
-console.log('flag', flag)
+// 全屏
 const isFullscreen = ref(screenfull.isFullscreen)
+// 全屏 事件
 const toggle = () => {
   screenfull.toggle()
   // 触发双向绑定
@@ -113,8 +113,7 @@ const handleStatusIcon = () => {
 // 刷新
 const handleRefresh = () => {
   // location.reload()
-  // router.go(0)
-  window.onload()
+  window.location.reload()
 }
 
 </script>

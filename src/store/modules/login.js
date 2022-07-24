@@ -53,10 +53,16 @@ export default {
       // avatar 头像  id  super：1   username 用户名
       // const { menus, role, ruleNames, username, super, id, avatar } = await Login.getInfo()
       const { menus, username, ruleNames } = await Login.getInfo()
-      console.log('aaa')
+
+      // 接口
+      // const statistics1 = await Login.getStatistics1()
+      // const statistics2 = await Login.getStatistics2()
+      // const statistics3 = await Login.getStatistics3(type)
+      // console.log('aaa')
       commit('username', username) // 用户名
       commit('menus', menus) // 菜单
       commit('ruleNames', ruleNames) // 接口信息权限
+      // return { menus, username, ruleNames, statistics1, statistics2 }
       return { menus, username, ruleNames }
     },
     // 退出
