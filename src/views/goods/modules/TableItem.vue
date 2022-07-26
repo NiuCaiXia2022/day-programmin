@@ -117,6 +117,9 @@
     </div>
   </el-drawer>
   <FormDialog :dialog="dialog"></FormDialog>
+
+  <!-- 分页 -->
+  <el-pagination background layout="prev, pager, next" :total="1000" />
 </template>
 <script setup>
 import { defineProps, ref, reactive } from 'vue'
@@ -159,9 +162,9 @@ const handleClickButton = (text) => {
   dialogTitle.value = text
 }
 
-// 点击按钮
+// 点击 右上关闭按钮
 const handleClose = () => {
-
+  dialog.value = false
 }
 
 </script>

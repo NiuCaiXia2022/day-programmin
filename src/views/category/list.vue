@@ -7,7 +7,7 @@
         <el-button type="primary" size="small">新增</el-button>
         <div>
           <el-tooltip class="box-item" effect="dark" content="刷新数据" placement="top">
-            <el-icon>
+            <el-icon class="category-header-icon">
               <Refresh />
             </el-icon>
           </el-tooltip>
@@ -60,6 +60,10 @@ categoryList()
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    .category-header-icon {
+      font-size: 18px;
+    }
   }
 }
 </style>

@@ -44,9 +44,11 @@
         </div>
 
         <div>
-          <el-icon>
-            <Refresh />
-          </el-icon>
+          <el-tooltip class="box-item" effect="dark" content="刷新数据" placement="top">
+            <el-icon class="goods-header-icon">
+              <Refresh />
+            </el-icon>
+          </el-tooltip>
         </div>
         <!-- {{ props.categoryList }} -->
       </div>
@@ -113,6 +115,10 @@ const handleReset = () => {
       float: right;
       z-index: 999;
     }
+  }
+
+  .goods-header-icon {
+    font-size: 18px;
   }
 
   .goods-header-bottom {
